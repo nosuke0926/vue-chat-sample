@@ -7,11 +7,14 @@
         </v-list-item-avatar>
 
         <v-list-item-content>
-          <v-list-item-subtitle class="text--primary sbheading">
+          <v-list-item-subtitle class="text--primary subheading">
             {{ comment.content }}
           </v-list-item-subtitle>
           <v-list-item-subtitle>
             {{ comment.createdAt.toDate().toLocaleString() }}
+            <v-icon color="red" @click="deleteComment(comment.id)" small>
+              delete
+            </v-icon>
           </v-list-item-subtitle>
         </v-list-item-content>
 
@@ -35,6 +38,16 @@ export default {
       // firestoreのcommentsコレクションを参照
       comments: db.collection("comments").orderBy("createdAt"),
     };
+  },
+  methods: {
+    deleteComment(id) {
+      if (!confirm("コメントを削除してよろしいですか")) {
+        return;
+      }
+      db.collection("comments")
+        .doc(id)
+        .delete();
+    },
   },
 };
 </script>
