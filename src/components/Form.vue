@@ -2,7 +2,7 @@
   <div>
     <!-- フォームの表示ボタン -->
     <v-btn color="blue" dark center fab fixed right @click="showCreateForm">
-      <v-icon>comment</v-icon>
+      <v-icon>mdi-comment</v-icon>
     </v-btn>
     <v-dialog v-model="displayForm" max-width="500px">
       <!-- コメント入力フォーム -->

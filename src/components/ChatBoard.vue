@@ -13,7 +13,7 @@
           <v-list-item-subtitle>
             {{ comment.createdAt.toDate().toLocaleString() }}
             <v-icon color="red" @click="deleteComment(comment.id)" small>
-              delete
+              mdi-delete
             </v-icon>
           </v-list-item-subtitle>
         </v-list-item-content>
